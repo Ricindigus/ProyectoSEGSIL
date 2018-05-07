@@ -4,27 +4,32 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/icon_segsil"
+        android:label="@string/siglas_sistema"
+        android:roundIcon="@drawable/icon_segsil"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".CoordinadorActivity" />
-        <activity android:name=".DirectorActivity" />
-        <activity android:name=".SilabusMenuActivity" />
-        <activity android:name=".SilabusRegistroActivity" />
-        <activity android:name=".AvanceMenuActivity" />
-        <activity android:name=".AvanceRegistroActivity" />
-        <activity android:name=".ControlSilabusActivity" />
-        <activity android:name=".ControlAvanceActivity"></activity>
+        <activity android:name=".silabus.CoordinadorActivity" />
+        <activity android:name=".control.DirectorActivity" />
+        <activity android:name=".silabus.SilabusMenuActivity" />
+        <activity android:name=".silabus.SilabusRegistroActivity" />
+        <activity android:name=".avance.AvanceMenuActivity" />
+        <activity android:name=".avance.AvanceRegistroActivity" />
+        <activity android:name=".control.ControlSilabusActivity" />
+        <activity android:name=".control.ControlAvanceActivity" />
+        <activity
+            android:name=".administrador.AdminActivity"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".administrador.GestionUsuariosActivity"></activity>
     </application>
 
 </manifest>

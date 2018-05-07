@@ -1,7 +1,9 @@
-package pe.edu.fisi.unmsm.proyectosegsil;
+package pe.edu.fisi.unmsm.proyectosegsil.avance;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import pe.edu.fisi.unmsm.proyectosegsil.R;
 
 public class AvanceMenuActivity extends AppCompatActivity {
 

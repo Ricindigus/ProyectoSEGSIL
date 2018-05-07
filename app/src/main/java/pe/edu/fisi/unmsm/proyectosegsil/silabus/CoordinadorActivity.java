@@ -1,7 +1,9 @@
-package pe.edu.fisi.unmsm.proyectosegsil;
+package pe.edu.fisi.unmsm.proyectosegsil.silabus;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import pe.edu.fisi.unmsm.proyectosegsil.R;
 
 public class CoordinadorActivity extends AppCompatActivity {
 
