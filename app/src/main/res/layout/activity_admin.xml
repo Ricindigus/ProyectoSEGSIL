@@ -38,6 +38,13 @@
             android:layout_height="0dp"
             android:layout_weight="4"
             android:layout_margin="@dimen/margin_material">
+            <TextView
+                android:id="@+id/admin_texto_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="sdfsd"
+                android:textColor="@color/colorIcons"/>
             <Button
                 android:id="@+id/admin_btnGestion"
                 android:layout_width="match_parent"
