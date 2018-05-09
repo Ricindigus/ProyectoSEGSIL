@@ -11,17 +11,19 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import pe.edu.fisi.unmsm.proyectosegsil.administrador.AdminActivity;
+import pe.edu.fisi.unmsm.proyectosegsil.pojos.Perfil;
+import pe.edu.fisi.unmsm.proyectosegsil.pojos.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText edtUsuario;
     private TextInputEditText edtPassword;
     private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firebaseFirestore;
+    private FirebaseFirestore db;
     private final String TAG = "FIREBASE AUTENTICACION";
 
     @Override
@@ -42,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         edtUsuario = (TextInputEditText) findViewById(R.id.login_edtUsuario);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,19 +82,28 @@ public class LoginActivity extends AppCompatActivity {
         if(user != null){
             String email = user.getEmail();
             String usuario = email.substring(0,email.indexOf("@"));
-            int perfil = 1;
+            DocumentReference docRef = db.collection("usuarios").document(usuario);
+            docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Usuario user = documentSnapshot.toObject(Usuario.class);
+                    int perfil = user.getPerfil();
+                    Intent intent = null;
+                    switch (perfil){
+                        case Perfiles.ADMINISTRADOR: intent =  new Intent(LoginActivity.this, AdminActivity.class); break;
+                        case Perfiles.DECANO: break;
+                        case Perfiles.DIRECTOR_SISTEMAS: break;
+                        case Perfiles.DIRECTOR_SOFTWARE: break;
+                        case Perfiles.COORDINADOR: break;
+                        case Perfiles.PROFESOR: break;
+                        case Perfiles.DELEGADO: break;
+                    }
+                    startActivity(intent);
+                    finish();
+                }
+            });
 
-            Intent intent = null;
-            switch (perfil){
-                case Perfiles.ADMINISTRADOR: intent =  new Intent(LoginActivity.this, AdminActivity.class); break;
-                case Perfiles.DECANO: break;
-                case Perfiles.DIRECTOR_SISTEMAS: break;
-                case Perfiles.DIRECTOR_SOFTWARE: break;
-                case Perfiles.PROFESOR: break;
-                case Perfiles.DELEGADO: break;
-            }
-            startActivity(intent);
-            finish();
+
         }
     }
 
