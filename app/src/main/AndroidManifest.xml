@@ -29,7 +29,8 @@
             android:name=".administrador.AdminActivity"
             android:label="@string/title_activity_admin"
             android:theme="@style/AppTheme" />
-        <activity android:name=".administrador.GestionUsuariosActivity"></activity>
+        <activity android:name=".administrador.GestionUsuariosActivity" />
+        <activity android:name=".BienvenidoActivity"></activity>
     </application>
 
 </manifest>

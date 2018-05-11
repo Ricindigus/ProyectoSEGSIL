@@ -1,19 +1,35 @@
 package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Curso {
+    private Eap eap;
+    private Plan plan;
     private String nombre;
-    private String idEap;
-    private String nombrePlan;
-    private String codigoCoordinador;
+    private Coordinador coordinador;
 
-    public Curso(String nombre, String idEap, String nombrePlan, String codigoCoordinador) {
+    public Curso(Eap eap, Plan plan, String nombre, Coordinador coordinador) {
+        this.eap = eap;
+        this.plan = plan;
         this.nombre = nombre;
-        this.idEap = idEap;
-        this.nombrePlan = nombrePlan;
-        this.codigoCoordinador = codigoCoordinador;
+        this.coordinador = coordinador;
     }
 
     public Curso() {
+    }
+
+    public Eap getEap() {
+        return eap;
+    }
+
+    public void setEap(Eap eap) {
+        this.eap = eap;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 
     public String getNombre() {
@@ -24,27 +40,11 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public String getIdEap() {
-        return idEap;
+    public Coordinador getCoordinador() {
+        return coordinador;
     }
 
-    public void setIdEap(String idEap) {
-        this.idEap = idEap;
-    }
-
-    public String getNombrePlan() {
-        return nombrePlan;
-    }
-
-    public void setNombrePlan(String nombrePlan) {
-        this.nombrePlan = nombrePlan;
-    }
-
-    public String getCodigoCoordinador() {
-        return codigoCoordinador;
-    }
-
-    public void setCodigoCoordinador(String codigoCoordinador) {
-        this.codigoCoordinador = codigoCoordinador;
+    public void setCoordinador(Coordinador coordinador) {
+        this.coordinador = coordinador;
     }
 }

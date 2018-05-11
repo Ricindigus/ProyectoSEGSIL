@@ -3,14 +3,10 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 public class Persona {
     private String id;
     private String nombre;
-    private String correo;
-    private String telefono;
 
-    public Persona(String id, String nombre, String correo, String telefono) {
+    public Persona(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.correo = correo;
-        this.telefono = telefono;
     }
 
     public Persona() {
@@ -30,21 +26,5 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 }

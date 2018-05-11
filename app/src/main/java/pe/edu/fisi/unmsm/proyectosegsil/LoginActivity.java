@@ -19,10 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import pe.edu.fisi.unmsm.proyectosegsil.administrador.AdminActivity;
-import pe.edu.fisi.unmsm.proyectosegsil.pojos.Perfil;
 import pe.edu.fisi.unmsm.proyectosegsil.pojos.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
@@ -80,30 +78,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void sesionActiva(FirebaseUser user){
         if(user != null){
-            String email = user.getEmail();
-            String usuario = email.substring(0,email.indexOf("@"));
-            DocumentReference docRef = db.collection("usuarios").document(usuario);
-            docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Usuario user = documentSnapshot.toObject(Usuario.class);
-                    int perfil = user.getPerfil();
-                    Intent intent = null;
-                    switch (perfil){
-                        case Perfiles.ADMINISTRADOR: intent =  new Intent(LoginActivity.this, AdminActivity.class); break;
-                        case Perfiles.DECANO: break;
-                        case Perfiles.DIRECTOR_SISTEMAS: break;
-                        case Perfiles.DIRECTOR_SOFTWARE: break;
-                        case Perfiles.COORDINADOR: break;
-                        case Perfiles.PROFESOR: break;
-                        case Perfiles.DELEGADO: break;
-                    }
-                    startActivity(intent);
-                    finish();
-                }
-            });
-
-
+            Intent intent = new Intent(LoginActivity.this, BienvenidoActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 

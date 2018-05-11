@@ -2,11 +2,11 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Perfil {
     private int id;
-    private String nombre;
+    private String descripcion;
 
-    public Perfil(int id, String nombre) {
+    public Perfil(int id, String descripcion) {
         this.id = id;
-        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public Perfil() {
@@ -20,11 +20,11 @@ public class Perfil {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

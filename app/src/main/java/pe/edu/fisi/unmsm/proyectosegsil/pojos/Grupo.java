@@ -2,21 +2,15 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Grupo {
     private int numero;
-    private String idEap;
-    private String nombrePlan;
-    private String nombreCurso;
-    private String codigoTipo;
-    private String codigoProfesor;
-    private String codigoDelegado;
+    private String tipo;
+    private Profesor profesor;
+    private Delegado delegado;
 
-    public Grupo(int numero, String idEap, String nombrePlan, String nombreCurso, String codigoTipo, String codigoProfesor, String codigoDelegado) {
+    public Grupo(int numero, String tipo, Profesor profesor, Delegado delegado) {
         this.numero = numero;
-        this.idEap = idEap;
-        this.nombrePlan = nombrePlan;
-        this.nombreCurso = nombreCurso;
-        this.codigoTipo = codigoTipo;
-        this.codigoProfesor = codigoProfesor;
-        this.codigoDelegado = codigoDelegado;
+        this.tipo = tipo;
+        this.profesor = profesor;
+        this.delegado = delegado;
     }
 
     public Grupo() {
@@ -30,51 +24,27 @@ public class Grupo {
         this.numero = numero;
     }
 
-    public String getIdEap() {
-        return idEap;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setIdEap(String idEap) {
-        this.idEap = idEap;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getNombrePlan() {
-        return nombrePlan;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setNombrePlan(String nombrePlan) {
-        this.nombrePlan = nombrePlan;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 
-    public String getNombreCurso() {
-        return nombreCurso;
+    public Delegado getDelegado() {
+        return delegado;
     }
 
-    public void setNombreCurso(String nombreCurso) {
-        this.nombreCurso = nombreCurso;
-    }
-
-    public String getCodigoTipo() {
-        return codigoTipo;
-    }
-
-    public void setCodigoTipo(String codigoTipo) {
-        this.codigoTipo = codigoTipo;
-    }
-
-    public String getCodigoProfesor() {
-        return codigoProfesor;
-    }
-
-    public void setCodigoProfesor(String codigoProfesor) {
-        this.codigoProfesor = codigoProfesor;
-    }
-
-    public String getCodigoDelegado() {
-        return codigoDelegado;
-    }
-
-    public void setCodigoDelegado(String codigoDelegado) {
-        this.codigoDelegado = codigoDelegado;
+    public void setDelegado(Delegado delegado) {
+        this.delegado = delegado;
     }
 }

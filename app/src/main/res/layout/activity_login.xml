@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_margin"
-                android:background="@drawable/boton_transparente"
+                android:theme="@style/RaisedButtonDark"
                 android:text="Ingresar"
                 android:textColor="@color/colorIcons" />
         </LinearLayout>
