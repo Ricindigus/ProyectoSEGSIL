@@ -2,19 +2,15 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Usuario {
     private String id;
-    private String nombres;
-    private String apellidos;
-    private String correo;
-    private String telefono;
-    private Perfiles perfiles;
+    private NombrePersona nombreUsuario;
+    private String password;
+    private Perfil perfil;
 
-    public Usuario(String id, String nombres, String apellidos, String correo, String telefono, Perfiles perfiles) {
+    public Usuario(String id, NombrePersona nombreUsuario, String password, Perfil perfil) {
         this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.perfiles = perfiles;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.perfil = perfil;
     }
 
     public Usuario() {
@@ -28,43 +24,27 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
-    public String getCorreo() {
-        return correo;
+    public NombrePersona getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Perfiles getPerfiles() {
-        return perfiles;
-    }
-
-    public void setPerfiles(Perfiles perfiles) {
-        this.perfiles = perfiles;
+    public void setNombreUsuario(NombrePersona nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 }

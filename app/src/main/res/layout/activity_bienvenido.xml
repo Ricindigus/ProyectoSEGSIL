@@ -21,6 +21,11 @@
                 android:gravity="center"
                 android:layout_marginBottom="@dimen/margin_material"
                 android:background="@color/colorPrimary">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/logo_segsil"
+                    android:tint="@color/colorIcons"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -37,7 +42,7 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/colorIcons"
-                    android:textSize="@dimen/texto_medio"
+                    android:textSize="@dimen/texto_chico"
                     />
             </LinearLayout>
             <LinearLayout
@@ -50,6 +55,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorAccent">
                     <TextView
+                        android:id="@+id/bienvenido_txtNombreUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Denis Ricardo Morales Retamozo"
@@ -67,14 +73,22 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
-            android:gravity="center"
+            android:gravity="top"
             android:layout_margin="@dimen/margin_material"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/bienvenido_txtCargando"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="CARGANDO MENU..."
+                android:gravity="center"/>
             <android.support.v7.widget.CardView
+                android:id="@+id/bienvenido_cvGestionarUsuarios"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:focusable="true"
                 android:clickable="true"
+                android:visibility="gone"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_margin="5dp">
                 <LinearLayout
@@ -100,9 +114,11 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
+                android:id="@+id/bienvenido_cvControlAvance"
                 android:layout_width="match_parent"
                 android:focusable="true"
                 android:clickable="true"
+                android:visibility="gone"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_height="50dp"
                 android:layout_margin="5dp">
@@ -129,10 +145,12 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
+                android:id="@+id/bienvenido_cvRegistrarSilabus"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:focusable="true"
                 android:clickable="true"
+                android:visibility="gone"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_margin="5dp">
                 <LinearLayout
@@ -158,9 +176,11 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
+                android:id="@+id/bienvenido_cvRegistrarAvance"
                 android:layout_width="match_parent"
                 android:focusable="true"
                 android:clickable="true"
+                android:visibility="gone"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_height="50dp"
                 android:layout_margin="5dp">
@@ -186,6 +206,13 @@
                         android:textSize="@dimen/texto_chico"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <Button
+                android:id="@+id/bienvenido_btnCerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cerrar sesion"
+                android:visibility="gone"
+                android:theme="@style/RaisedButtonDark"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

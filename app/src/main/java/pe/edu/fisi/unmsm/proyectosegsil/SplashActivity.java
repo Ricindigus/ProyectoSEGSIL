@@ -9,9 +9,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import pe.edu.fisi.unmsm.proyectosegsil.administrador.AdminActivity;
-import pe.edu.fisi.unmsm.proyectosegsil.administrador.GestionUsuariosActivity;
-
 public class SplashActivity extends AppCompatActivity {
     private final int tiempoEspera = 3000;
 

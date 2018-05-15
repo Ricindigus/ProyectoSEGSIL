@@ -17,20 +17,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".silabus.CoordinadorActivity" />
-        <activity android:name=".control.DirectorActivity" />
-        <activity android:name=".silabus.SilabusMenuActivity" />
-        <activity android:name=".silabus.SilabusRegistroActivity" />
-        <activity android:name=".avance.AvanceMenuActivity" />
-        <activity android:name=".avance.AvanceRegistroActivity" />
-        <activity android:name=".control.ControlSilabusActivity" />
-        <activity android:name=".control.ControlAvanceActivity" />
+        <activity android:name=".DirectorActivity" />
+        <activity android:name=".SilabusRegistrarActivity" />
+        <activity android:name=".AvanceRegistrarActivity" />
+        <activity android:name=".ControlSilabusActivity" />
+        <activity android:name=".ControlAvanceActivity" />
         <activity
-            android:name=".administrador.AdminActivity"
-            android:label="@string/title_activity_admin"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".administrador.GestionUsuariosActivity" />
-        <activity android:name=".BienvenidoActivity"></activity>
+            android:name=".AdminActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".SilabusMenuActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".ControlMenuActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".AvanceMenuActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".BienvenidoActivity" />
     </application>
 
 </manifest>

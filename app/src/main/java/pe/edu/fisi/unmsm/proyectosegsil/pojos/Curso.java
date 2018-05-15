@@ -1,14 +1,12 @@
 package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Curso {
-    private Eap eap;
-    private Plan plan;
-    private String nombre;
+    private String eap;
+    private NombreCurso nombre;
     private Coordinador coordinador;
 
-    public Curso(Eap eap, Plan plan, String nombre, Coordinador coordinador) {
+    public Curso(String eap, NombreCurso nombre, Coordinador coordinador) {
         this.eap = eap;
-        this.plan = plan;
         this.nombre = nombre;
         this.coordinador = coordinador;
     }
@@ -16,27 +14,19 @@ public class Curso {
     public Curso() {
     }
 
-    public Eap getEap() {
+    public String getEap() {
         return eap;
     }
 
-    public void setEap(Eap eap) {
+    public void setEap(String eap) {
         this.eap = eap;
     }
 
-    public Plan getPlan() {
-        return plan;
-    }
-
-    public void setPlan(Plan plan) {
-        this.plan = plan;
-    }
-
-    public String getNombre() {
+    public NombreCurso getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(NombreCurso nombre) {
         this.nombre = nombre;
     }
 
@@ -48,3 +38,4 @@ public class Curso {
         this.coordinador = coordinador;
     }
 }
+

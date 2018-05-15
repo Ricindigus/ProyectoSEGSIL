@@ -1,4 +1,4 @@
-package pe.edu.fisi.unmsm.proyectosegsil.control;
+package pe.edu.fisi.unmsm.proyectosegsil;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
