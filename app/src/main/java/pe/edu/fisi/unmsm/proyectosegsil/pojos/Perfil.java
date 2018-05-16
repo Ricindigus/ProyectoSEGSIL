@@ -9,9 +9,6 @@ public class Perfil {
     private boolean profesor;
     private boolean delegado;
 
-
-
-
     public Perfil(boolean administrador, boolean decanato, boolean director_sw, boolean director_ss, boolean coordinador, boolean profesor, boolean delegado) {
         this.administrador = administrador;
         this.decanato = decanato;
@@ -79,5 +76,18 @@ public class Perfil {
 
     public void setDelegado(boolean delegado) {
         this.delegado = delegado;
+    }
+
+    @Override
+    public String toString() {
+        String p = "";
+        if(isAdministrador()) p = p + "(ADMIN)";
+        if(isDecanato()) p = p + "(DECA)";
+        if(isDirector_sw()) p = p + "(DIR_SW)";
+        if(isDirector_ss()) p = p + "(DIR_SS)";
+        if(isCoordinador()) p = p + "(COOR)";
+        if(isProfesor()) p = p + "(PROF)";
+        if(isDelegado()) p = p + "(DEL)";
+        return p;
     }
 }

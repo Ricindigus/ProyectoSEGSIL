@@ -2,13 +2,15 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Usuario {
     private String id;
-    private NombrePersona nombreUsuario;
+    private String nombres;
+    private String apellidos;
     private String password;
     private Perfil perfil;
 
-    public Usuario(String id, NombrePersona nombreUsuario, String password, Perfil perfil) {
+    public Usuario(String id, String nombres, String apellidos, String password, Perfil perfil) {
         this.id = id;
-        this.nombreUsuario = nombreUsuario;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.password = password;
         this.perfil = perfil;
     }
@@ -40,11 +42,19 @@ public class Usuario {
         this.perfil = perfil;
     }
 
-    public NombrePersona getNombreUsuario() {
-        return nombreUsuario;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombreUsuario(NombrePersona nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 }

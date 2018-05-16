@@ -2,13 +2,15 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 
 public class Persona {
     private String id;
-    private NombrePersona nombrePersona;
+    private String nombres;
+    private String apellidos;
     private String correo;
     private String telefono;
 
-    public Persona(String id, NombrePersona nombrePersona, String correo, String telefono) {
+    public Persona(String id, String nombres, String apellidos, String correo, String telefono) {
         this.id = id;
-        this.nombrePersona = nombrePersona;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
     }
@@ -24,12 +26,20 @@ public class Persona {
         this.id = id;
     }
 
-    public NombrePersona getNombrePersona() {
-        return nombrePersona;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombrePersona(NombrePersona nombrePersona) {
-        this.nombrePersona = nombrePersona;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getCorreo() {

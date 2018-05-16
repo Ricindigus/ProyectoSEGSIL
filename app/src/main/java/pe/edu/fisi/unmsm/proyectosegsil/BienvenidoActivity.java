@@ -1,6 +1,8 @@
 package pe.edu.fisi.unmsm.proyectosegsil;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -27,6 +29,9 @@ public class BienvenidoActivity extends AppCompatActivity {
     private CardView cvControlarAvance;
     private TextView txtNombreUsuario;
     private TextView txtCargando;
+    private String nombre;
+    private String apellido;
+
 
 
     private FirebaseAuth firebaseAuth;
@@ -57,10 +62,7 @@ public class BienvenidoActivity extends AppCompatActivity {
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(BienvenidoActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                cerrarSesion();
             }
         });
 
@@ -68,7 +70,8 @@ public class BienvenidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BienvenidoActivity.this, AdminActivity.class);
-                intent.putExtra("usuario",txtNombreUsuario.getText().toString());
+                intent.putExtra("nombre",nombre);
+                intent.putExtra("apellido",apellido);
                 startActivity(intent);
             }
         });
@@ -76,7 +79,8 @@ public class BienvenidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BienvenidoActivity.this, SilabusMenuActivity.class);
-                intent.putExtra("usuario",txtNombreUsuario.getText().toString());
+                intent.putExtra("nombre",nombre);
+                intent.putExtra("apellido",apellido);
                 startActivity(intent);
             }
         });
@@ -84,7 +88,8 @@ public class BienvenidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BienvenidoActivity.this, AvanceMenuActivity.class);
-                intent.putExtra("usuario",txtNombreUsuario.getText().toString());
+                intent.putExtra("nombre",nombre);
+                intent.putExtra("apellido",apellido);
                 startActivity(intent);
             }
         });
@@ -92,7 +97,8 @@ public class BienvenidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BienvenidoActivity.this, ControlMenuActivity.class);
-                intent.putExtra("usuario",txtNombreUsuario.getText().toString());
+                intent.putExtra("nombre",nombre);
+                intent.putExtra("apellido",apellido);
                 startActivity(intent);
             }
         });
@@ -107,8 +113,9 @@ public class BienvenidoActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     Persona persona = documentSnapshot.toObject(Persona.class);
-                    String nombre = persona.getNombrePersona().getNombres() + " " + persona.getNombrePersona().getApellidos();
-                    txtNombreUsuario.setText(nombre);
+                    nombre = persona.getNombres();
+                    apellido = persona.getApellidos();
+                    txtNombreUsuario.setText(nombre + " " + apellido);
                 }
             });
 
@@ -129,5 +136,22 @@ public class BienvenidoActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    public void cerrarSesion(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("¿DESEA CERRAR SESIÓN?");
+        builder.setNegativeButton("CANCELAR", null);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                firebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(BienvenidoActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

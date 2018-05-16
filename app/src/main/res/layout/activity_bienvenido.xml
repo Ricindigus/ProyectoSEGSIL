@@ -58,7 +58,7 @@
                         android:id="@+id/bienvenido_txtNombreUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Denis Ricardo Morales Retamozo"
+                        android:text="Cargando usuario..."
                         android:gravity="center"
                         android:padding="10dp"
                         android:textColor="@color/colorIcons"

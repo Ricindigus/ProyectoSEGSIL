@@ -16,23 +16,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:gravity="center"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:src="@drawable/icono_administrador"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/baseline_person_black_48"
                 android:tint="@color/colorPrimary"/>
-            <TextView
-                android:id="@+id/admin_txtUsuario"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="@dimen/texto_chico"
-                android:text="Denis Ricardo Morales Retamozo"
-                android:textColor="@color/colorPrimary"/>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/admin_txtNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/texto_chico"
+                    android:text="Cargando usuario..."
+                    android:textColor="@color/colorPrimary"/>
+                <TextView
+                    android:id="@+id/admin_txtApellido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/texto_chico"
+                    android:text="Cargando usuario..."
+                    android:textColor="@color/colorPrimary"/>
+            </LinearLayout>
         </LinearLayout>
         <android.support.v7.widget.CardView
             android:backgroundTint="@color/colorPrimary"
@@ -52,7 +65,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4">
+            android:layout_weight="6">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/admin_recycler"
                 android:layout_width="match_parent"
@@ -66,7 +79,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/btn_agregar"
-                android:layout_margin="5dp"/>
+                android:layout_margin="10dp"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
