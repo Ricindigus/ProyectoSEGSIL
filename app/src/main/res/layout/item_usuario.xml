@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:layout_margin="2dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:id="@+id/item_usuario_cv">
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_material">16dp</dimen>
+    <dimen name="margin5dp">5dp</dimen>
     <dimen name="texto_muy_chico">10sp</dimen>
     <dimen name="texto_chico">15sp</dimen>
     <dimen name="texto_medio">20sp</dimen>

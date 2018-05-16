@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -94,9 +95,16 @@ public class AdminActivity extends AppCompatActivity {
         adapter =  new  FirestoreRecyclerAdapter < Usuario , UsuarioHolder > (opciones) {
             @Override
             public void onBindViewHolder(UsuarioHolder holder, int position, Usuario model) {
+                final Usuario u = model;
                 holder.txtId.setText(model.getId().toString());
                 holder.txtNombre.setText(model.getNombres().toString() + " "+ model.getApellidos().toString());
                 holder.txtPerfil.setText(model.getPerfil().toString());
+                holder.cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(AdminActivity.this, u.getNombres(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -216,12 +224,12 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     public void cargaCursos(){
-        db.collection("cursos").document("sscompinf").set(new Curso("sscompinf","SS",new NombreCurso("(2014)INTRODUCCIÓN A LA  COMPUTACION","(2009)COMPUTACION E INFORMATICA"),"smurakami","MURAKAMI CRUZ SUMIKO"));
-        db.collection("cursos").document("ssteosis").set(new Curso("ssteosis","SS",new NombreCurso("(2014)TEORIA DE SISTEMAS","(2009)TEORÍA GENERAL DE SISTEMAS"),"fescobedo","ESCOBEDO BAILON FRANK EDMUNDO"));
-        db.collection("cursos").document("sscomdin").set(new Curso("sscomdin","SS",new NombreCurso("(2014)COMUNICACIÓN Y DINÁMICA DE GRUPO","(2009)TALLER DE TÉCNICAS DE ESTUDIO"),"wchalco","CHALCO ARANGONITA WALTER"));
-        db.collection("cursos").document("ssestapinv").set(new Curso("ssestapinv","SS",new NombreCurso("(2014) ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN",""),"rsolis","SOLIS NARRO ROLANDO"));
-        db.collection("cursos").document("sscalc1").set(new Curso("sscalc1","SS",new NombreCurso("(2014)CÁLCULO I","(2009)CÁLCULO I"),"wacuna","ACUÑA MONTAÑEZ, WALTER"));
-        db.collection("cursos").document("ssmatbas1").set(new Curso("ssmatbas1","SS",new NombreCurso("(2014)MATEMÁTICA BÁSICA I","(2009)MATEMÁTICA BÁSICA I"),"lcachi","CACHI MONTOYA LUIS"));
-        db.collection("cursos").document("sseticpro").set(new Curso("sseticpro","SS",new NombreCurso("(2014) ÉTICA DE LA PROFESIÓN",""),"cmora","CARLOS ABEL MORA ZAVALA"));
+        db.collection("cursos").document("sscompinf").set(new Curso("sscompinf","SS",new NombreCurso("INTRODUCCIÓN A LA  COMPUTACION","(2014)INTRODUCCIÓN A LA  COMPUTACION","(2009)COMPUTACION E INFORMATICA"),"smurakami","MURAKAMI CRUZ SUMIKO"));
+        db.collection("cursos").document("ssteosis").set(new Curso("ssteosis","SS",new NombreCurso("TEORIA DE SISTEMAS","(2014)TEORIA DE SISTEMAS","(2009)TEORÍA GENERAL DE SISTEMAS"),"fescobedo","ESCOBEDO BAILON FRANK EDMUNDO"));
+        db.collection("cursos").document("sscomdin").set(new Curso("sscomdin","SS",new NombreCurso("COMUNICACIÓN Y DINÁMICA DE GRUPO","(2014)COMUNICACIÓN Y DINÁMICA DE GRUPO","(2009)TALLER DE TÉCNICAS DE ESTUDIO"),"wchalco","CHALCO ARANGONITA WALTER"));
+        db.collection("cursos").document("ssestapinv").set(new Curso("ssestapinv","SS",new NombreCurso("ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN","(2014) ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN",""),"rsolis","SOLIS NARRO ROLANDO"));
+        db.collection("cursos").document("sscalc1").set(new Curso("sscalc1","SS",new NombreCurso("CÁLCULO I","(2014)CÁLCULO I","(2009)CÁLCULO I"),"wacuna","ACUÑA MONTAÑEZ, WALTER"));
+        db.collection("cursos").document("ssmatbas1").set(new Curso("ssmatbas1","SS",new NombreCurso("MATEMÁTICA BÁSICA I","(2014)MATEMÁTICA BÁSICA I","(2009)MATEMÁTICA BÁSICA I"),"lcachi","CACHI MONTOYA LUIS"));
+        db.collection("cursos").document("sseticpro").set(new Curso("sseticpro","SS",new NombreCurso("ÉTICA DE LA PROFESIÓN","(2014) ÉTICA DE LA PROFESIÓN",""),"cmora","CARLOS ABEL MORA ZAVALA"));
     }
 }

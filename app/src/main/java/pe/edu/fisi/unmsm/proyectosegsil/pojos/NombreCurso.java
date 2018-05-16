@@ -3,10 +3,12 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 import java.util.ArrayList;
 
 public class NombreCurso {
+    private String nombre;
     private String nombrePlan1;
     private String nombrePlan2;
 
-    public NombreCurso(String nombrePlan1, String nombrePlan2) {
+    public NombreCurso(String nombre, String nombrePlan1, String nombrePlan2) {
+        this.nombre = nombre;
         this.nombrePlan1 = nombrePlan1;
         this.nombrePlan2 = nombrePlan2;
     }
@@ -28,5 +30,13 @@ public class NombreCurso {
 
     public void setNombrePlan2(String nombrePlan2) {
         this.nombrePlan2 = nombrePlan2;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
