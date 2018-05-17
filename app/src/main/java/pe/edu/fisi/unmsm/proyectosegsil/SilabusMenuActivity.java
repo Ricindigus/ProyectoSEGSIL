@@ -37,8 +37,7 @@ import pe.edu.fisi.unmsm.proyectosegsil.pojos.Usuario;
 public class SilabusMenuActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore db;
-    TextView txtNombre;
-    TextView txtApellido;
+    TextView txtCoordinador;
     RecyclerView recyclerView;
     String TAG = "FIRESTORE";
     Toolbar myToolbar;
@@ -55,13 +54,10 @@ public class SilabusMenuActivity extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         recyclerView = (RecyclerView) findViewById(R.id.silabus_recycler);
-        txtNombre = (TextView)findViewById(R.id.silabus_txtNombre);
-        txtApellido = (TextView)findViewById(R.id.silabus_txtApellido);
-
+        txtCoordinador = (TextView)findViewById(R.id.silabus_txtCoordinador);
 
         Bundle bundle = getIntent().getExtras();
-        txtNombre.setText(bundle.getString("nombre"));
-        txtApellido.setText(bundle.getString("apellido"));
+        txtCoordinador.setText("Coordinador: "+ bundle.getString("nombre") + " " + bundle.getString("apellido"));
 
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("REGISTRAR SILABUS");
@@ -94,14 +90,14 @@ public class SilabusMenuActivity extends AppCompatActivity {
             public void onBindViewHolder(CursoHolder holder, int position, Curso model) {
                 final Curso c = model;
                 holder.txtEap.setText(model.getEap().toString());
-                holder.txtNombre1.setText(model.getNombre().getNombrePlan1());
-                holder.txtNombre2.setText(model.getNombre().getNombrePlan2());
+                holder.txtNombre1.setText(model.getNombrePlan1());
+                holder.txtNombre2.setText(model.getNombrePlan2());
                 holder.txtCoordinador.setText(model.getNombreCoordinador());
                 holder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent =  new Intent(SilabusMenuActivity.this,SilabusRegistrarActivity.class);
-                        intent.putExtra("nombre_curso",c.getNombre().getNombre());
+                        intent.putExtra("nombre_curso",c.getNombreCurso());
                         startActivity(intent);
                     }
                 });

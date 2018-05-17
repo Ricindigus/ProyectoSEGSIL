@@ -25,6 +25,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -122,8 +124,41 @@ public class AdminActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cargaUsuarios();
-                cargaCursos();
+//                cargaUsuarios();
+//                cargaCursos();
+                DocumentReference docRef1 = db.collection("silabus").document("sscompinf1");
+                docRef1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document != null && document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                            } else {
+                                Log.d(TAG, "No such document");
+                            }
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
+                        }
+                    }
+                });
+                CollectionReference collectionReference = db.collection("silabus").document("sscompinf1").collection("unidades");
+                collectionReference
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (DocumentSnapshot document : task.getResult()) {
+                                        Log.d(TAG, document.getId() + " => " + document.getData());
+                                    }
+                                } else {
+                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                }
+                            }
+                        });
+
+
             }
         });
     }
@@ -224,12 +259,12 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     public void cargaCursos(){
-        db.collection("cursos").document("sscompinf").set(new Curso("sscompinf","SS",new NombreCurso("INTRODUCCIÓN A LA  COMPUTACION","(2014)INTRODUCCIÓN A LA  COMPUTACION","(2009)COMPUTACION E INFORMATICA"),"smurakami","MURAKAMI CRUZ SUMIKO"));
-        db.collection("cursos").document("ssteosis").set(new Curso("ssteosis","SS",new NombreCurso("TEORIA DE SISTEMAS","(2014)TEORIA DE SISTEMAS","(2009)TEORÍA GENERAL DE SISTEMAS"),"fescobedo","ESCOBEDO BAILON FRANK EDMUNDO"));
-        db.collection("cursos").document("sscomdin").set(new Curso("sscomdin","SS",new NombreCurso("COMUNICACIÓN Y DINÁMICA DE GRUPO","(2014)COMUNICACIÓN Y DINÁMICA DE GRUPO","(2009)TALLER DE TÉCNICAS DE ESTUDIO"),"wchalco","CHALCO ARANGONITA WALTER"));
-        db.collection("cursos").document("ssestapinv").set(new Curso("ssestapinv","SS",new NombreCurso("ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN","(2014) ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN",""),"rsolis","SOLIS NARRO ROLANDO"));
-        db.collection("cursos").document("sscalc1").set(new Curso("sscalc1","SS",new NombreCurso("CÁLCULO I","(2014)CÁLCULO I","(2009)CÁLCULO I"),"wacuna","ACUÑA MONTAÑEZ, WALTER"));
-        db.collection("cursos").document("ssmatbas1").set(new Curso("ssmatbas1","SS",new NombreCurso("MATEMÁTICA BÁSICA I","(2014)MATEMÁTICA BÁSICA I","(2009)MATEMÁTICA BÁSICA I"),"lcachi","CACHI MONTOYA LUIS"));
-        db.collection("cursos").document("sseticpro").set(new Curso("sseticpro","SS",new NombreCurso("ÉTICA DE LA PROFESIÓN","(2014) ÉTICA DE LA PROFESIÓN",""),"cmora","CARLOS ABEL MORA ZAVALA"));
+        db.collection("cursos").document("sscompinf").set(new Curso("sscompinf","SS","INTRODUCCIÓN A LA  COMPUTACION","(2014)INTRODUCCIÓN A LA  COMPUTACION","(2009)COMPUTACION E INFORMATICA","smurakami","MURAKAMI CRUZ SUMIKO",false));
+        db.collection("cursos").document("ssteosis").set(new Curso("ssteosis","SS","TEORIA DE SISTEMAS","(2014)TEORIA DE SISTEMAS","(2009)TEORÍA GENERAL DE SISTEMAS","fescobedo","ESCOBEDO BAILON FRANK EDMUNDO",false));
+        db.collection("cursos").document("sscomdin").set(new Curso("sscomdin","SS","COMUNICACIÓN Y DINÁMICA DE GRUPO","(2014)COMUNICACIÓN Y DINÁMICA DE GRUPO","(2009)TALLER DE TÉCNICAS DE ESTUDIO","wchalco","CHALCO ARANGONITA WALTER",false));
+        db.collection("cursos").document("ssestapinv").set(new Curso("ssestapinv","SS","ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN","(2014) ESTRATÉGIAS DE APRENDIZAJE E INVESTIGACIÓN","","rsolis","SOLIS NARRO ROLANDO",false));
+        db.collection("cursos").document("sscalc1").set(new Curso("sscalc1","SS","CÁLCULO I","(2014)CÁLCULO I","(2009)CÁLCULO I","wacuna","ACUÑA MONTAÑEZ, WALTER",false));
+        db.collection("cursos").document("ssmatbas1").set(new Curso("ssmatbas1","SS","MATEMÁTICA BÁSICA I","(2014)MATEMÁTICA BÁSICA I","(2009)MATEMÁTICA BÁSICA I" ,"lcachi","CACHI MONTOYA LUIS",false));
+        db.collection("cursos").document("sseticpro").set(new Curso("sseticpro","SS","ÉTICA DE LA PROFESIÓN","(2014) ÉTICA DE LA PROFESIÓN","","cmora","CARLOS ABEL MORA ZAVALA",false));
     }
 }

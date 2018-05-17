@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import pe.edu.fisi.unmsm.proyectosegsil.R;
 
 public class SilabusRegistrarActivity extends AppCompatActivity {
@@ -23,8 +24,8 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
     FirebaseFirestore db;
 
     ImageView btnVolver;
-    ImageView btnAnterior;
-    ImageView btnSiguiente;
+    CircleImageView btnAnterior;
+    CircleImageView btnSiguiente;
     ImageView btnSalir;
 
     TextView txtTituloFragment;
@@ -37,8 +38,8 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_silabus_registro);
 
-        btnAnterior = (ImageView) findViewById(R.id.registro_silabus_btnAnterior);
-        btnSiguiente = (ImageView) findViewById(R.id.registro_silabus_btnSiguiente);
+        btnAnterior = (CircleImageView) findViewById(R.id.registro_silabus_btnAnterior);
+        btnSiguiente = (CircleImageView) findViewById(R.id.registro_silabus_btnSiguiente);
         btnSalir = (ImageView) findViewById(R.id.registro_silabus_btnSalir);
         btnVolver = (ImageView) findViewById(R.id.registro_silabus_btnVolver);
         txtTituloFragment = (TextView) findViewById(R.id.registro_silabus_txtTituloFragment);

@@ -3,16 +3,22 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 public class Curso {
     private String id;
     private String eap;
-    private NombreCurso nombre;
+    private String nombreCurso;
+    private String nombrePlan1;
+    private String nombrePlan2;
     private String idCoordinador;
     private String nombreCoordinador;
+    private boolean silabus;
 
-    public Curso(String id, String eap, NombreCurso nombre, String idCoordinador, String nombreCoordinador) {
+    public Curso(String id, String eap, String nombreCurso, String nombrePlan1, String nombrePlan2, String idCoordinador, String nombreCoordinador, boolean silabus) {
         this.id = id;
         this.eap = eap;
-        this.nombre = nombre;
+        this.nombreCurso = nombreCurso;
+        this.nombrePlan1 = nombrePlan1;
+        this.nombrePlan2 = nombrePlan2;
         this.idCoordinador = idCoordinador;
         this.nombreCoordinador = nombreCoordinador;
+        this.silabus = silabus;
     }
 
     public Curso() {
@@ -34,12 +40,28 @@ public class Curso {
         this.eap = eap;
     }
 
-    public NombreCurso getNombre() {
-        return nombre;
+    public String getNombreCurso() {
+        return nombreCurso;
     }
 
-    public void setNombre(NombreCurso nombre) {
-        this.nombre = nombre;
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
+
+    public String getNombrePlan1() {
+        return nombrePlan1;
+    }
+
+    public void setNombrePlan1(String nombrePlan1) {
+        this.nombrePlan1 = nombrePlan1;
+    }
+
+    public String getNombrePlan2() {
+        return nombrePlan2;
+    }
+
+    public void setNombrePlan2(String nombrePlan2) {
+        this.nombrePlan2 = nombrePlan2;
     }
 
     public String getIdCoordinador() {
@@ -56,6 +78,14 @@ public class Curso {
 
     public void setNombreCoordinador(String nombreCoordinador) {
         this.nombreCoordinador = nombreCoordinador;
+    }
+
+    public boolean isSilabus() {
+        return silabus;
+    }
+
+    public void setSilabus(boolean silabus) {
+        this.silabus = silabus;
     }
 }
 

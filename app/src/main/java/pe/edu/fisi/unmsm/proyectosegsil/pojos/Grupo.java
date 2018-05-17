@@ -4,21 +4,29 @@ public class Grupo {
     private String id;
     private int numero;
     private String eap;
-    private NombreCurso nombreCurso;
+    private String codCurso;
+    private String nombre1;
+    private String nombre2;
     private String tipo;
     private String codProfesor;
     private String nomProfesor;
+    private String codCoordinador;
+    private String nomCoordinador;
     private String codDelegado;
     private String nomDelegado;
 
-    public Grupo(String id, int numero, String eap, NombreCurso nombreCurso, String tipo, String codProfesor, String nomProfesor, String codDelegado, String nomDelegado) {
+    public Grupo(String id, int numero, String eap, String codCurso, String nombre1, String nombre2, String tipo, String codProfesor, String nomProfesor, String codCoordinador, String nomCoordinador, String codDelegado, String nomDelegado) {
         this.id = id;
         this.numero = numero;
         this.eap = eap;
-        this.nombreCurso = nombreCurso;
+        this.codCurso = codCurso;
+        this.nombre1 = nombre1;
+        this.nombre2 = nombre2;
         this.tipo = tipo;
         this.codProfesor = codProfesor;
         this.nomProfesor = nomProfesor;
+        this.codCoordinador = codCoordinador;
+        this.nomCoordinador = nomCoordinador;
         this.codDelegado = codDelegado;
         this.nomDelegado = nomDelegado;
     }
@@ -50,12 +58,28 @@ public class Grupo {
         this.eap = eap;
     }
 
-    public NombreCurso getNombreCurso() {
-        return nombreCurso;
+    public String getCodCurso() {
+        return codCurso;
     }
 
-    public void setNombreCurso(NombreCurso nombreCurso) {
-        this.nombreCurso = nombreCurso;
+    public void setCodCurso(String codCurso) {
+        this.codCurso = codCurso;
+    }
+
+    public String getCodCoordinador() {
+        return codCoordinador;
+    }
+
+    public void setCodCoordinador(String codCoordinador) {
+        this.codCoordinador = codCoordinador;
+    }
+
+    public String getNomCoordinador() {
+        return nomCoordinador;
+    }
+
+    public void setNomCoordinador(String nomCoordinador) {
+        this.nomCoordinador = nomCoordinador;
     }
 
     public String getTipo() {
@@ -96,5 +120,21 @@ public class Grupo {
 
     public void setNomDelegado(String nomDelegado) {
         this.nomDelegado = nomDelegado;
+    }
+
+    public String getNombre1() {
+        return nombre1;
+    }
+
+    public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
+    }
+
+    public String getNombre2() {
+        return nombre2;
+    }
+
+    public void setNombre2(String nombre2) {
+        this.nombre2 = nombre2;
     }
 }
