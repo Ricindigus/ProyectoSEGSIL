@@ -24,8 +24,8 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
     FirebaseFirestore db;
 
     ImageView btnVolver;
-    CircleImageView btnAnterior;
-    CircleImageView btnSiguiente;
+    ImageView btnAnterior;
+    ImageView btnSiguiente;
     ImageView btnSalir;
 
     TextView txtTituloFragment;
@@ -38,8 +38,8 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_silabus_registro);
 
-        btnAnterior = (CircleImageView) findViewById(R.id.registro_silabus_btnAnterior);
-        btnSiguiente = (CircleImageView) findViewById(R.id.registro_silabus_btnSiguiente);
+        btnAnterior = (ImageView) findViewById(R.id.registro_silabus_btnAnterior);
+        btnSiguiente = (ImageView) findViewById(R.id.registro_silabus_btnSiguiente);
         btnSalir = (ImageView) findViewById(R.id.registro_silabus_btnSalir);
         btnVolver = (ImageView) findViewById(R.id.registro_silabus_btnVolver);
         txtTituloFragment = (TextView) findViewById(R.id.registro_silabus_txtTituloFragment);

@@ -3,6 +3,7 @@ package pe.edu.fisi.unmsm.proyectosegsil.pojos;
 public class Unidad {
     private int numero;
     private String nombre;
+    private int semanas;
 
     public Unidad(int numero, String nombre) {
         this.numero = numero;
@@ -26,5 +27,13 @@ public class Unidad {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getSemanas() {
+        return semanas;
+    }
+
+    public void setSemanas(int semanas) {
+        this.semanas = semanas;
     }
 }
