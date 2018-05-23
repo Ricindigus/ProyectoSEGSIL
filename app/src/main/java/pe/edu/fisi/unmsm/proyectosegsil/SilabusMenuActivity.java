@@ -98,6 +98,7 @@ public class SilabusMenuActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent =  new Intent(SilabusMenuActivity.this,SilabusRegistrarActivity.class);
                         intent.putExtra("nombre_curso",c.getNombreCurso());
+                        intent.putExtra("id_curso",c.getId());
                         startActivity(intent);
                     }
                 });
@@ -114,7 +115,6 @@ public class SilabusMenuActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
 
     }
 

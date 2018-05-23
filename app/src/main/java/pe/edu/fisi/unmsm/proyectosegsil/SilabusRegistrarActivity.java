@@ -2,6 +2,8 @@ package pe.edu.fisi.unmsm.proyectosegsil;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import pe.edu.fisi.unmsm.proyectosegsil.R;
+import pe.edu.fisi.unmsm.proyectosegsil.fragments.UnidadesFragment;
 
 public class SilabusRegistrarActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -30,6 +33,7 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
 
     TextView txtTituloFragment;
     TextView txtNombreCurso;
+    String idCurso;
 
 
 
@@ -51,6 +55,7 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         txtNombreCurso.setText(bundle.getString("nombre_curso"));
+        idCurso = bundle.getString("id_curso");
 
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +70,8 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        setFragment(0);
     }
 
 
@@ -83,6 +90,21 @@ public class SilabusRegistrarActivity extends AppCompatActivity {
         });
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+
+    public void setFragment(int numFragment){
+        FragmentManager fragmentManager =  getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+        switch (numFragment){
+            case 0:
+                UnidadesFragment unidadesFragment =  new UnidadesFragment(idCurso,SilabusRegistrarActivity.this);
+                fragmentTransaction.replace(R.id.layout_fragment,unidadesFragment);
+                break;
+            case 1:break;
+            case 2:break;
+        }
+        fragmentTransaction.commit();
     }
 
 }
